@@ -2,9 +2,9 @@ from __future__ import print_function
 import os
 import sys
 import argparse
-from .ios_builder import iOSBuilder
-from .pgyer_uploader import uploadIpaToPgyer
-from .pgyer_uploader import saveQRCodeImage
+from ios_builder import iOSBuilder
+from pgyer_uploader import uploadIpaToPgyer
+from pgyer_uploader import saveQRCodeImage
 
 
 def parse_args():
