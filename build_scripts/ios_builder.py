@@ -64,11 +64,11 @@ class iOSBuilder(object):
         process.wait()
         return_code = process.returncode
         print(return_code)
-        assert return_code == 0
+        # assert return_code == 0
 
     def _get_build_params(self, project, target, workspace, scheme):
         if project is None and workspace is None:
-            raise "project and workspace should not both be None."
+            raise Exception("project and workspace should not both be None.")
         elif project is not None:
             build_params = '-project %s -scheme %s' % (project, scheme)
             # specify package name
@@ -102,7 +102,7 @@ class iOSBuilder(object):
         """ export archive to ipa file, return ipa location
         """
         if self._provisioning_profile is None:
-            raise "provisioning profile should not be None!"
+            raise Exception("provisioning profile should not be None!")
         ipa_path = os.path.join(self._output_folder, "{}.ipa".format(self._package_name))
         cmd_shell = 'xcodebuild -exportArchive -archivePath {}'.format(self._archive_path)
         cmd_shell += ' -exportPath {}'.format(ipa_path)
