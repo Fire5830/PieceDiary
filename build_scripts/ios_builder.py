@@ -64,7 +64,7 @@ class iOSBuilder(object):
         process.wait()
         return_code = process.returncode
         print(return_code)
-        # assert return_code == 0
+        assert return_code == 0
 
     def _get_build_params(self, project, target, workspace, scheme):
         if project is None and workspace is None:
